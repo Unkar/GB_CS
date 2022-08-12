@@ -30,8 +30,53 @@ class Program
         }
     }
 
+    static double[] CoordStringToVector(string point) //Преобразует строку с координатами в вектор.
+    {   
+        string[] pointCoords = point.Split(','); 
+        double[] vector = new double[pointCoords.Length];
+        for (int i = 0; i < pointCoords.Length; i++)
+        {
+            vector[i] = Convert.ToDouble(pointCoords[i].Trim());
+        }
+        return vector;
+    }
+
+    static double[] LengthBetween(double[] point1, double[] point2)
+    {
+        double length = 0;
+        int i = 0;
+        while (true)
+        {
+            length += Math.Pow(point1[i] - point2[i],2);
+            i++;
+
+        }
+
+    
+        return length   
+    }
+
+
     static void HomeWorkTask21()
     {
+        /*          Задача 21
+         Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+
+         A (3,6,8); B (2,1,-7), -> 15.84
+
+         A (7,-5, 0); B (1,-1,9) -> 11.5326 */
+
+        Console.WriteLine("Введите координаты первой точки");
+        string pointA = Console.ReadLine();
+        Console.WriteLine("Введите координаты второй точки");
+        string pointB = Console.ReadLine();
+
+        double[] coordinatesA = CoordStringToVector(pointA);
+        double[] coordinatesB = CoordStringToVector(pointB);
+
+
+        Console.WriteLine("Расстояние между точками: ");
+        Console.WriteLine(lineLength);
 
     }
 
