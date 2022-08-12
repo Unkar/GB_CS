@@ -31,8 +31,8 @@ class Program
     }
 
     static double[] CoordStringToVector(string point) //Преобразует строку с координатами в вектор.
-    {   
-        string[] pointCoords = point.Split(','); 
+    {
+        string[] pointCoords = point.Split(',');
         double[] vector = new double[pointCoords.Length];
         for (int i = 0; i < pointCoords.Length; i++)
         {
@@ -41,19 +41,19 @@ class Program
         return vector;
     }
 
-    static double[] LengthBetween(double[] point1, double[] point2)
+    static double LengthBetween(double[] point1, double[] point2) // Вычисляет расстояние между двумя векторами
     {
         double length = 0;
         int i = 0;
-        while (true)
+        while (i < point1.Length && i < point2.Length)
         {
-            length += Math.Pow(point1[i] - point2[i],2);
+            length += Math.Pow(point1[i] - point2[i], 2);
             i++;
-
         }
 
-    
-        return length   
+        length = Math.Sqrt(length);
+
+        return length;
     }
 
 
@@ -74,7 +74,7 @@ class Program
         double[] coordinatesA = CoordStringToVector(pointA);
         double[] coordinatesB = CoordStringToVector(pointB);
 
-
+        double lineLength = LengthBetween(coordinatesA, coordinatesB);
         Console.WriteLine("Расстояние между точками: ");
         Console.WriteLine(lineLength);
 
@@ -82,7 +82,18 @@ class Program
 
     static void HomeWorkTask23()
     {
+        /*         Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
 
+                3 -> 1, 8, 27
+                5 -> 1, 8, 27, 64, 125 */
+        Console.WriteLine("Введите число: ");
+        int numberN = Console.ReadLine();
+
+        for (int i, i< numberN, i++)
+        {
+            Console.Write(Math.Pow(i,3)+", ");
+        }
+        Console.WriteLine(Math.Pow(numberN,3));
     }
 
     static void Main()
