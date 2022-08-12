@@ -2,7 +2,7 @@
 
 class Program
 {
-    static void HomeWorkTask19()
+    static void FindPalindrome()
     {
         /* Задача 19
         Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
@@ -14,23 +14,24 @@ class Program
         string number = Console.ReadLine();
 
         int index = 0;
-        while (index < (number.Length / 2))
+        bool running = true;
+        while (index < number.Length / 2 && running)
         {
             if (number[index] == number[number.Length - index - 1])
             {
-                if (index == number.Length/2) Console.WriteLine("Число полиндром");
                 index++;
             }
             else
             {
-                Console.WriteLine("Число не полиндром");
-                
+                Console.WriteLine("Число не палиндром");
+                running = false;
             }
+            if (index >= number.Length / 2) Console.WriteLine("Число палиндром");
         }
     }
+
     static void HomeWorkTask21()
     {
-
 
     }
 
@@ -55,7 +56,7 @@ class Program
             switch (taskNumber)
             {
                 case "19":
-                    HomeWorkTask19();
+                    FindPalindrome();
                     break;
                 case "21":
                     HomeWorkTask21();
