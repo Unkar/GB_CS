@@ -30,7 +30,7 @@ class Program
         }
     }
 
-    static double[] CoordStringToVector(string point) //Преобразует строку с координатами в вектор.
+    static double[] CoordStringToVector(string point) //Преобразует строку с координатами в вектор. Работает на любую размерность пространства.
     {
         string[] pointCoords = point.Split(',');
         double[] vector = new double[pointCoords.Length];
@@ -41,7 +41,7 @@ class Program
         return vector;
     }
 
-    static double LengthBetween(double[] point1, double[] point2) // Вычисляет расстояние между двумя векторами
+    static double LengthBetween(double[] point1, double[] point2) // Вычисляет расстояние между двумя векторами. Работает на любую размерность пространства
     {
         double length = 0;
         int i = 0;
@@ -66,9 +66,9 @@ class Program
 
          A (7,-5, 0); B (1,-1,9) -> 11.5326 */
 
-        Console.WriteLine("Введите координаты первой точки");
+        Console.WriteLine("Введите координаты первой точки через запятую ");
         string pointA = Console.ReadLine();
-        Console.WriteLine("Введите координаты второй точки");
+        Console.WriteLine("Введите координаты второй точки через запятую");
         string pointB = Console.ReadLine();
 
         double[] coordinatesA = CoordStringToVector(pointA);
