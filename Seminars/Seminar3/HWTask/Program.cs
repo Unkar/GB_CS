@@ -87,13 +87,13 @@ class Program
                 3 -> 1, 8, 27
                 5 -> 1, 8, 27, 64, 125 */
         Console.WriteLine("Введите число: ");
-        int numberN = Console.ReadLine();
+        int numberN = Convert.ToInt32(Console.ReadLine());
 
-        for (int i, i< numberN, i++)
+        for (int i = 0; i < numberN; i++)
         {
-            Console.Write(Math.Pow(i,3)+", ");
+            Console.Write(Math.Pow(i, 3) + ", ");
         }
-        Console.WriteLine(Math.Pow(numberN,3));
+        Console.WriteLine(Math.Pow(numberN, 3));
     }
 
     static void Main()
