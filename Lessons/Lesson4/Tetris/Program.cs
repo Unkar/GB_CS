@@ -46,6 +46,13 @@ class Program
         return field;
     }
 
+    static string[,] GetNewFigure(string[,] field)
+    {
+        
+
+        return field;
+    }
+
     static void Main()
     {
         int weight = 12;
@@ -54,5 +61,7 @@ class Program
         string[,] fieldStatus = new string[height, weight];
         fieldStatus = FillStartField(fieldStatus);
         PrintField(fieldStatus);
+        GetNewFigure(fieldStatus);
     }
+
 }
