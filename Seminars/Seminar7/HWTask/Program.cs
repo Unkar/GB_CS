@@ -94,7 +94,6 @@ class Program
         }
     }
 
-
     static void WritePositionInArray(int value, int[,] array)                      //выводит позицию искомого числа в массиве
     {
         bool found = false;
