@@ -1,122 +1,31 @@
-﻿// Задача. Сделать игру тетрис в консоли
-// Размер поля 20х10
-// Пустые поля заполнятются "."
-// Фигуры заполняются "*"
+﻿// Задача 37: Найдите произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д. Результат запишите в новом массиве.
 
+// [1 2 3 4 5] -> 5 8 3
+
+// [6 7 3 6] -> 36 21
+
+using System;
 class Program
-{  
-    static void FillField(char[,] field)
+{
+    static void Main()
     {
-        for (int i = 0; i < field.GetLength(0); i++)
+        int[] arr = { 1, 2, 3, 4, 5 };
+        int[] arr2 = { 6, 7, 3, 6 };
+        int[] arr3 = new int[arr.Length];
+        int[] arr4 = new int[arr2.Length];
+        for (int i = 0; i < arr.Length; i++)
         {
-            for (int j = 0; j < field.GetLength(1); j++)
-            {
-                field[i, j] = '.';
-            }
+            arr3[i] = arr[i] * arr[arr.Length - 1 - i];
+            arr4[i] = arr2[i] * arr2[arr2.Length - 1 - i];
+        }
+        for (int i = 0; i < arr3.Length; i++)
+        {
+            Console.Write(arr3[i] + " ");
+        }
+        Console.WriteLine();
+        for (int i = 0; i < arr4.Length; i++)
+        {
+            Console.Write(arr4[i] + " ");
         }
     }
-
-    static void DrawField(char[,] field)
-    {
-        for (int i = 0; i < field.GetLength(0); i++)
-        {
-            for (int j = 0; j < field.GetLength(1); j++)
-            {
-                Console.Write(field[i, j]);
-            }
-            Console.WriteLine();
-        }
-    }
-
-    static void NewTetrisElement(char[,] field, int x, int y)
-    {
-        field[x, y] = '*';
-        field[x + 1, y] = '*';
-        field[x + 2, y] = '*';
-        field[x + 3, y] = '*';
-    }
-
-    static void SetElementOnField(char[,] field, int x, int y)
-    {
-        if (x < 0 || x > field.GetLength(0) - 1 || y < 0 || y > field.GetLength(1) - 1)
-        {
-            return;
-        }
-        else
-        {
-            field[x, y] = '*';
-        }
-    }
-   
-    static void Main(string[] args)
-    {
-        char[,] field = new char[20, 10];
-        FillField(field);
-        DrawField(field);
-        while (true)
-        {
-            ConsoleKeyInfo key = Console.ReadKey();
-            if (key.Key == ConsoleKey.Escape)
-            {
-                break;
-            }
-            else if (key.Key == ConsoleKey.LeftArrow)
-            {
-                for (int i = 0; i < field.GetLength(0); i++)
-                {
-                    for (int j = 0; j < field.GetLength(1); j++)
-                    {
-                        if (field[i, j] == '*')
-                        {
-                            field[i, j] = '.';
-                            field[i, j - 1] = '*';
-                        }
-                    }
-                }
-            }
-            else if (key.Key == ConsoleKey.RightArrow)
-            {
-                for (int i = 0; i < field.GetLength(0); i++)
-                {
-                    for (int j = 0; j < field.GetLength(1); j++)
-                    {
-                        if (field[i, j] == '*')
-                        {
-                            field[i, j] = '.';
-                            field[i, j + 1] = '*';
-                        }
-                    }
-                }
-            }
-            else if (key.Key == ConsoleKey.UpArrow)
-            {
-                for (int i = 0; i < field.GetLength(0); i++)
-                {
-                    for (int j = 0; j < field.GetLength(1); j++)
-                    {
-                        if (field[i, j] == '*')
-                        {
-                            field[i, j] = '.';
-                            field[i - 1, j] = '*';
-                        }
-                    }
-                }
-            }
-            else if (key.Key == ConsoleKey.DownArrow)
-            {
-                for (int i = 0; i < field.GetLength(0); i++)
-                {
-                    for (int j = 0; j < field.GetLength(1); j++)
-                    {
-                        if (field[i, j] == '*')
-                        {
-                            field[i, j] = '.';
-                            field[i + 1, j] = '*';
-                        }
-                    }
-                }
-            }
-        }
-    }
-
 }
